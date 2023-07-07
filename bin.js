@@ -4,7 +4,7 @@ var proc = require('child_process')
 var os = require('os')
 var path = require('path')
 
-console.log("args");
+console.log("argv");
 console.log(JSON.stringify(process.args));
 
 if (!buildFromSource()) {
