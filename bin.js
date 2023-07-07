@@ -40,6 +40,7 @@ function build () {
 }
 
 function preinstall () {
+  console.log(process.argv[2]);
   if (!process.argv[2]) return build()
   exec(process.argv[2]).on('exit', function (code) {
     if (code) process.exit(code)
@@ -48,6 +49,8 @@ function preinstall () {
 }
 
 function exec (cmd) {
+  console.log("Running:");
+  console.log(cmd);
   if (process.platform !== 'win32') {
     var shell = os.platform() === 'android' ? 'sh' : '/bin/sh'
     return proc.spawn(shell, ['-c', '--', cmd], {
