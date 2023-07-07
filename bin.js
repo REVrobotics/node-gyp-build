@@ -4,6 +4,9 @@ var proc = require('child_process')
 var os = require('os')
 var path = require('path')
 
+console.log("args");
+console.log(JSON.stringify(process.args));
+
 if (!buildFromSource()) {
   proc.exec('node-gyp-build-test', function (err, stdout, stderr) {
     if (err) {
