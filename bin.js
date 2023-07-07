@@ -26,6 +26,8 @@ function build () {
     ]
   } catch (_) {}
 
+  if (verbose()) args.push('--verbose')
+
   proc.spawn(args[0], args.slice(1), { stdio: 'inherit' }).on('exit', function (code) {
     if (code || !process.argv[3]) process.exit(code)
     exec(process.argv[3]).on('exit', function (code) {
