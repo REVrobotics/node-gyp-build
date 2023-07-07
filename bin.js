@@ -28,7 +28,10 @@ function build () {
 
   if (verbose()) args.push('--verbose')
 
+  console.log(JSON.stringify(args));
+
   proc.spawn(args[0], args.slice(1), { stdio: 'inherit' }).on('exit', function (code) {
+    console.log(process.argv[3]);
     if (code || !process.argv[3]) process.exit(code)
     exec(process.argv[3]).on('exit', function (code) {
       process.exit(code)
